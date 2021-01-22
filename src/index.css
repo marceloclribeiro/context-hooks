@@ -11,3 +11,11 @@ body {
   margin: 30px auto;
   text-align: center;
 }
+.light {
+  color: #555;
+  background-color: #eee;
+}
+.dark {
+  color: #ddd;
+  background-color: #555;
+}

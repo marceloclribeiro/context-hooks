@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../../contexts/ThemeContext'
 import './styles.css'
 
-const BookList = () => (
-  <div className='book-list'>
-    <ul>
-      <li>The way of kings</li>
-      <li>The name of the wind</li>
-      <li>The final empire</li>
-    </ul>
-  </div>
-)
+const BookList = () => {
+  const { isLightTheme, light, dark } = useContext(ThemeContext)
+  const theme = isLightTheme ? light : dark
+
+  return (
+    <div className={isLightTheme ? 'light book-list' : 'dark book-list'}>
+      <ul>
+        <li style={{ background: theme.ui }}>The way of kings</li>
+        <li style={{ background: theme.ui }}>The name of the wind</li>
+        <li style={{ background: theme.ui }}>The final empire</li>
+      </ul>
+    </div>
+  )
+}
 export default BookList

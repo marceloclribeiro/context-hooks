@@ -1,17 +1,18 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../contexts/ThemeContext'
+import React from 'react'
+import { useTheme, useUpdateTheme } from '../../contexts/ThemeContext'
 import './styles.css'
 
 const BookList = () => {
-  const { isLightTheme, light, dark } = useContext(ThemeContext)
-  const theme = isLightTheme ? light : dark
+  const darkTheme = useTheme()
+  const toggleTheme = useUpdateTheme()
 
   return (
-    <div className={isLightTheme ? 'light book-list' : 'dark book-list'}>
+    <div className={darkTheme ? 'dark book-list' : 'light book-list'}>
+      <button onClick={toggleTheme}>dark mode</button>
       <ul>
-        <li style={{ background: theme.ui }}>The way of kings</li>
-        <li style={{ background: theme.ui }}>The name of the wind</li>
-        <li style={{ background: theme.ui }}>The final empire</li>
+        <li>The way of kings</li>
+        <li>The name of the wind</li>
+        <li>The final empire</li>
       </ul>
     </div>
   )

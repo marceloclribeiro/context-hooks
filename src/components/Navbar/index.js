@@ -1,12 +1,14 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../contexts/ThemeContext'
+import React from 'react'
+import { useTheme, useUpdateTheme } from '../../contexts/ThemeContext'
 import './styles.css'
 
 const Navbar = () => {
-  const { isLightTheme, light, dark } = useContext(ThemeContext)
+  const darkTheme = useTheme()
+  const toggleTheme = useUpdateTheme()
 
   return (
-    <nav className={isLightTheme ? 'light' : 'dark'}>
+    <nav className={darkTheme ? 'dark' : 'light'}>
+      <button onClick={toggleTheme}>dark mode</button>
       <h1>Context App</h1>
       <ul>
         <li>Home</li>

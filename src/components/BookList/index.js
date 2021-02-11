@@ -1,10 +1,9 @@
-import React from 'react'
-import { useTheme, useUpdateTheme } from '../../contexts/ThemeContext'
+import React, { useContext } from 'react'
+import ThemeContext from '../../contexts/ThemeContext'
 import './styles.css'
 
 const BookList = () => {
-  const darkTheme = useTheme()
-  const toggleTheme = useUpdateTheme()
+  const { darkTheme, toggleTheme } = useContext(ThemeContext)
 
   return (
     <div className={darkTheme ? 'dark book-list' : 'light book-list'}>

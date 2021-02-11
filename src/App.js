@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BookList from './components/BookList'
 import Navbar from './components/Navbar'
-import { ThemeContextProvider, useUpdateTheme } from './contexts/ThemeContext'
+import { ThemeContext, ThemeContextProvider } from './contexts/ThemeContext'
 
 const App = () => {
-  const toggleTheme = useUpdateTheme()
+  const { toggleTheme } = useContext(ThemeContext)
   return (
     <div className='App'>
       <ThemeContextProvider>
         <Navbar />
         <div>
           <button onClick={toggleTheme}>nao foi</button>
-          {/* nao funcionou */}
+          {/* nao funciona */}
         </div>
         <BookList />
       </ThemeContextProvider>
